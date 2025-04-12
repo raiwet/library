@@ -14,243 +14,258 @@
     --monospace: ui-monospace, SFMono-Regular, "SF Mono", Menlo, Monaco, Consolas, "Roboto Mono", "Liberation Mono", "Courier New", monospace;
     --cursive: "Comic Sans", "Comic Sans MS", "Chalkboard", "ChalkboardSE-Regular", cursive, sans-serif;
     font-variant-ligatures: no-contextual;
+}
+::-moz-selection {
+  color: var(--eigengrau);
+  background-color: var(--blue-lighter);
+}
+::selection {
+  color: var(--eigengrau);
+  background-color: var(--blue-lighter);
+}
+::target-text {
+  color: var(--eigengrau);
+  background-color: var(--blue-lighter);
+}
+:focus {
+  outline: 3px solid var(--blue-lighter);
+  outline-offset: 1px;
+}
+html {
+  overflow-x: hidden;
+  overflow-y: scroll;
+  scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
+  -moz-text-size-adjust: 100%;
+  -ms-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+  -webkit-overflow-scrolling: touch;
+  -ms-overflow-style: scrollbar;
+  -webkit-tap-highlight-color: transparent;
+  hanging-punctuation: first allow-end last;
+}
+body {
+  margin: 0 auto;
+  padding: 0;
+  width: 45em;
+  max-width: 95%;
+  color: var(--eigengrau);
+  font-family: var(--serif);
+  font-size: 1.125rem;
+  line-height: 1.618;
+  font-feature-settings: "onum" 1;
+  text-rendering: geometricPrecision;
+  -moz-font-feature-settings: "kern";
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  direction: ltr;
+  word-break: break-word;
+  overflow-wrap: break-word;
+  text-wrap: pretty;
+}
+h1, h2, h3, h4, h5 {
+  font-family: var(--sans-serif);
+  text-wrap: balance;
+}
+.title-section {margin-bottom:0;}
+.author-section {margin-top:0;}
+table, td, th {
+  border-collapse: collapse;
+}
+table {
+  border-style: hidden;
+  font-family: var(--monospace);
+  width: 100%;
+}
+caption {
+  text-wrap: balance;
+}
+td, th {
+  border: 1px solid var(--eigengrau);
+  padding: 3px;
+}
+tbody {
+  vertical-align: text-bottom;
+}
+a {
+  background-color: transparent;
+  color: var(--blue-dark);
+  text-decoration-skip: ink;
+  -ms-touch-action: manipulation;
+  touch-action: manipulation;
+}
+a:active, a:focus, a:hover {
+  color: var(--blue-light);
+}
+.return, .fixed, abbr[title], h1 a, h2 a, h3 a, h4 a, h5 a {
+  text-decoration: none;
+}
+dt, strong {
+  font-weight: 700;
+}
+cite, em {
+  font-style: italic;
+}
+cite::before {
+  content: "—";
+}
+blockquote {
+  text-wrap: balance;
+}
+blockquote > p::before {
+  content: open-quote;
+}
+blockquote > p::after {
+  content: close-quote;
+}
+sub, sup {
+  font-size: 75%;
+  line-height: 0;
+  position: relative;
+  vertical-align: baseline;
+}
+sub {
+  bottom: -.25rem;
+}
+sup {
+  top: -.5rem;
+}
+sub::before, sup::before {
+  content: "[";
+}
+sub::after, sup::after {
+  content: "]";
+}
+li::marker {
+  color: var(--blue-dark);
+  font-weight: 700;
+}
+ul ul, ul ul ul {
+  font-size: 1rem;
+  list-style: inherit;
+}
+mark {
+  color: var(--eigengrau);
+  background-color: rgba( var(--blue-lighter-rgb), 0.2);
+  padding: .25rem;
+  white-space: pre-wrap;
+}
+hr {
+  display: block;
+  height: 1px;
+  border: 0;
+  border-top: 1px solid var(--eigengrau);
+  margin: 1em 0;
+  padding: 0;
+}
+footer {
+  font-size: 1rem;
+}
+.alpha, .roman, table {
+  font-feature-settings: 'tnum' on;
+  font-variant-numeric: tabular-nums oldstyle-nums;
+}
+.alpha {
+  list-style-type: lower-alpha;
+}
+.roman {
+  list-style-type: lower-roman;
+}
+.fixed {
+  position: fixed;
+  bottom: 0.5rem;
+  right: 1em;
+  font-family: var(--monospace);
+}
+[id] {
+  scroll-margin-top: 2ex;
+}
+#progress {
+  background-color: var(--blue-light);
+  height: .125rem;
+  position: fixed;
+  top: 0;
+  left: 0;
+  transform-origin: left center;
+  width: 100%;
+  animation: progress linear;
+  animation-timeline: scroll();
+}
+.inline {
+  display: inline;
+}
+.inline-section {
+  margin-bottom: 1.1em;
+}
+@keyframes progress {
+  from { transform: scaleX(0); }
+}
+@media (prefers-reduced-motion: reduce) {
+  *, ::after, ::before, html {
+    scroll-behavior: auto !important;
   }
-  ::-moz-selection {
-    color: var(--eigengrau);
-    background-color: var(--blue-lighter);
+  *, ::after, ::before {
+    animation: none !important;
+    transition: none !important;
   }
-  ::selection {
-    color: var(--eigengrau);
-    background-color: var(--blue-lighter);
-  }
-  ::target-text {
-    color: var(--eigengrau);
-    background-color: var(--blue-lighter);
-  }
-  :focus {
-    outline: 3px solid var(--blue-lighter);
-    outline-offset: 1px;
-  }
-  html {
-    overflow-x: hidden;
-    overflow-y: scroll;
-    scroll-behavior: smooth;
-    -webkit-text-size-adjust: 100%;
-    -moz-text-size-adjust: 100%;
-    -ms-text-size-adjust: 100%;
-    text-size-adjust: 100%;
-    -webkit-overflow-scrolling: touch;
-    -ms-overflow-style: scrollbar;
-    -webkit-tap-highlight-color: transparent;
-    hanging-punctuation: first allow-end last;
-  }
+}
+@media (prefers-color-scheme: dark) {
   body {
-    margin: 0 auto;
-    padding: 0;
-    width: 45em;
-    max-width: 95%;
-    color: var(--eigengrau);
-    font-family: var(--serif);
-    font-size: 1.125rem;
-    line-height: 1.618;
-    font-feature-settings: "onum" 1;
-    text-rendering: geometricPrecision;
-    -moz-font-feature-settings: "kern";
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-    direction: ltr;
-    word-break: break-word;
-    overflow-wrap: break-word;
-    text-wrap: pretty;
+    background-color: var(--eigengrau);
   }
-  h1, h2, h3, h4, h5 {
-    font-family: var(--sans-serif);
-    text-wrap: balance;
-  }
-  .title-section {margin-bottom:0;}
-  .author-section {margin-top:0;}
-  table, td, th {
-    border-collapse: collapse;
-  }
-  table {
-    border-style: hidden;
-    font-family: var(--monospace);
-    width: 100%;
-  }
-  caption {
-    text-wrap: balance;
-  }
-  td, th {
-    border: 1px solid var(--eigengrau);
-    padding: 3px;
-  }
-  tbody {
-    vertical-align: text-bottom;
+  body, mark {
+    color: var(--white);
   }
   a {
-    background-color: transparent;
-    color: var(--blue-dark);
-    text-decoration-skip: ink;
-    -ms-touch-action: manipulation;
-    touch-action: manipulation;
+    color: var(--blue-lighter);
   }
-  a:active, a:focus, a:hover {
+  a:active, a:focus, a:hover, li::marker {
     color: var(--blue-light);
   }
-  .return, .fixed, abbr[title], h1 a, h2 a, h3 a, h4 a, h5 a {
-    text-decoration: none;
-  }
-  dt, strong {
-    font-weight: 700;
-  }
-  cite, em {
-    font-style: italic;
-  }
-  cite::before {
-    content: "—";
-  }
-  blockquote {
-    text-wrap: balance;
-  }
-  blockquote > p::before {
-    content: open-quote;
-  }
-  blockquote > p::after {
-    content: close-quote;
-  }
-  sub, sup {
-    font-size: 75%;
-    line-height: 0;
-    position: relative;
-    vertical-align: baseline;
-  }
-  sub {
-    bottom: -.25rem;
-  }
-  sup {
-    top: -.5rem;
-  }
-  sub::before, sup::before {
-    content: "[";
-  }
-  sub::after, sup::after {
-    content: "]";
-  }
-  li::marker {
-    color: var(--blue-dark);
-    font-weight: 700;
-  }
-  ul ul, ul ul ul {
-    font-size: 1rem;
-    list-style: inherit;
-  }
   mark {
-    color: var(--eigengrau);
-    background-color: rgba( var(--blue-lighter-rgb), 0.2);
-    padding: .25rem;
-    white-space: pre-wrap;
+    background-color: var(--blue-dark);
   }
   hr {
-    display: block;
-    height: 1px;
-    border: 0;
-    border-top: 1px solid var(--eigengrau);
-    margin: 1em 0;
-    padding: 0;
+    border-top: 1px solid var(--white);
   }
-  footer {
+}
+@media print {
+  body {
     font-size: 1rem;
+    line-height: 1.618;
   }
-  .alpha, .roman, table {
-    font-feature-settings: 'tnum' on;
-    font-variant-numeric: tabular-nums oldstyle-nums;
+  a, body, li::marker {
+    color: #000;
   }
-  .alpha {
-    list-style-type: lower-alpha;
+  a {
+    text-decoration: none;
   }
-  .roman {
-    list-style-type: lower-roman;
+  .return, .fixed, footer, h1 a, h2 a, h3 a, h4 a, h5 a {
+    display: none;
   }
-  .fixed {
-    position: fixed;
-    bottom: 0.5rem;
-    right: 1em;
-    font-family: var(--monospace);
+  mark, mark[title], mark[title] > a {
+    background-color: #fff;
+    color: #000;
   }
-  [id] {
-    scroll-margin-top: 2ex;
+  main table, nav ul, ul ul, ul ul ul {
+    font-size: 80%;
   }
-  #progress {
-    background-color: var(--blue-light);
-    height: .125rem;
-    position: fixed;
-    top: 0;
-    left: 0;
-    transform-origin: left center;
-    width: 100%;
-    animation: progress linear;
-    animation-timeline: scroll();
+  main h2 {
+    page-break-before: always;
   }
-  @keyframes progress {
-    from { transform: scaleX(0); }
+  h3, h4, h5 {
+    page-break-after: avoid;
   }
-  @media (prefers-reduced-motion: reduce) {
-    *, ::after, ::before, html {
-      scroll-behavior: auto !important;
-    }
-    *, ::after, ::before {
-      animation: none !important;
-      transition: none !important;
-    }
+  table, figure {
+    page-break-inside: avoid;
   }
-  @media (prefers-color-scheme: dark) {
-    body {
-      background-color: var(--eigengrau);
-    }
-    body, mark {
-      color: var(--white);
-    }
-    a {
-      color: var(--blue-lighter);
-    }
-    a:active, a:focus, a:hover, li::marker {
-      color: var(--blue-light);
-    }
-    mark {
-      background-color: var(--blue-dark);
-    }
-    hr {
-      border-top: 1px solid var(--white);
-    }
+}
+@media (max-width: 1450px) { /* Breakpoint for mobile */
+  .content-block {
+    transition: opacity 0.5s ease-in-out; /* Smooth transition for fading */
   }
-  @media print {
-    body {
-      font-size: 1rem;
-      line-height: 1.618;
-    }
-    a, body, li::marker {
-      color: #000;
-    }
-    a {
-      text-decoration: none;
-    }
-    .return, .fixed, footer, h1 a, h2 a, h3 a, h4 a, h5 a {
-      display: none;
-    }
-    mark, mark[title], mark[title] > a {
-      background-color: #fff;
-      color: #000;
-    }
-    main table, nav ul, ul ul, ul ul ul {
-      font-size: 80%;
-    }
-    main h2 {
-      page-break-before: always;
-    }
-    h3, h4, h5 {
-      page-break-after: avoid;
-    }
-    table, figure {
-      page-break-inside: avoid;
-    }
+  .is-faded {
+    opacity: 0.15;
   }
+  /* Add a subtle highlight to the targeted block (optional) */
+}
