@@ -183,14 +183,3 @@ document.addEventListener('DOMContentLoaded', () => {
     console.log("Book navigation script initialized.");
 
 }); // End DOMContentLoaded
-
-
-const toTop = document.querySelector(".fixed");
-
-window.addEventListener("scroll", () => {
-	if (window.pageYOffset > 400) {
-		toTop.classList.add("active");
-	} else {
-		toTop.classList.remove("active");
-	}
-});

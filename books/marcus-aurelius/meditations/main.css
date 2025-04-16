@@ -172,10 +172,16 @@ footer {
   list-style-type: lower-roman;
 }
 .fixed {
+  opacity: 0;
   position: fixed;
   bottom: 0.5rem;
   right: 1em;
   font-family: var(--monospace);
+  transition: all 0.3s;
+}
+.fixed.active {
+	opacity:1;
+	transition: all 0.3s;
 }
 [id] {
   scroll-margin-top: 2ex;
@@ -197,6 +203,21 @@ footer {
 .inline-section {
   margin-bottom: 1.1em;
 }
+
+.content-section.faded {
+  opacity: 0.15; /* Adjust opacity as desired */
+  transition: opacity 0.5s ease-in-out; /* Smooth transition */
+  pointer-events: none; /* Prevent interaction with faded content */
+}
+
+/* Ensure the non-faded section remains fully opaque */
+.content-section {
+  opacity: 1;
+  transition: opacity 0.5s ease-in-out; /* Smooth transition back */
+  pointer-events: auto;
+}
+/* Add a subtle highlight to the targeted block (optional) */
+
 @keyframes progress {
   from { transform: scaleX(0); }
 }
@@ -261,11 +282,10 @@ footer {
   }
 }
 @media (max-width: 1450px) { /* Breakpoint for mobile */
-  .content-block {
-    transition: opacity 0.5s ease-in-out; /* Smooth transition for fading */
+  /*.content-block {
+    transition: opacity 0.5s ease-in-out; /* Smooth transition for fading * /
   }
   .is-faded {
     opacity: 0.15;
-  }
-  /* Add a subtle highlight to the targeted block (optional) */
+  } old code */ 
 }

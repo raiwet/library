@@ -1,0 +1,51 @@
+/* Basic Styling (optional - adapt as needed) */
+/* ... (keep your existing basic styles) ... */
+
+#navigation-section a { /* Example */
+    font-weight: bold;
+    color: #007bff;
+    text-decoration: none;
+}
+#navigation-section a:hover {
+    text-decoration: underline;
+}
+
+/* --- Fading Logic Classes --- */
+
+/* Marker class for the container when fading is active */
+#bookContainer.fade-active {
+    /* No direct style needed, just used as a JS flag and CSS selector parent */
+}
+
+/* Default: Fade ALL direct children of the container when active */
+#bookContainer.fade-active > * {
+    opacity: 0.15 !important;
+    pointer-events: none !important;
+    transition: opacity 0.5s ease-in-out;
+}
+
+/* Override 1: Make the specifically targeted section fully visible */
+#bookContainer.fade-active .visible-section {
+    opacity: 1 !important;
+    pointer-events: auto !important;
+}
+
+/* Override 2: Make the ancestors of the target section fully visible */
+#bookContainer.fade-active .ancestor-visible {
+    opacity: 1 !important;
+    pointer-events: auto !important; /* Allow interaction within ancestor containers */
+}
+
+/* --- *** CRUCIAL NEW RULE *** --- */
+/* Override 3: Within a visible ancestor, re-fade its children UNLESS */
+/* that child is also an ancestor or is the final target section. */
+#bookContainer.fade-active .ancestor-visible > *:not(.ancestor-visible):not(.visible-section) {
+     opacity: 0.15 !important;
+     pointer-events: none !important;
+     /* Optional: you might want no transition here for immediate effect */
+     /* transition: none; */
+}
+
+/* Default transition for elements that might be faded/unfaded */
+/* Apply broadly to potentially affected elements */
+#bookContainer section, #bookContainer div {

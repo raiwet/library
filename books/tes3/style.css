@@ -1,0 +1,49 @@
+/* --- Basic Styling (Optional) --- */
+body {
+    font-family: sans-serif;
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+}
+
+header, main, footer {
+    padding: 1em 2em;
+}
+
+/* --- Core Fading Styles --- */
+
+/* Style for sections that should be faded out */
+.content-section.faded {
+    opacity: 0.15; /* Adjust opacity as desired */
+    transition: opacity 0.5s ease-in-out; /* Smooth transition */
+    pointer-events: none; /* Prevent interaction with faded content */
+}
+
+/* Ensure the non-faded section remains fully opaque */
+.content-section {
+    opacity: 1;
+    transition: opacity 0.5s ease-in-out; /* Smooth transition back */
+    pointer-events: auto;
+}
+
+/* Optional: Add some spacing between sections */
+.content-section {
+    margin-bottom: 2em;
+    border-bottom: 1px solid #eee; /* Example separator */
+    padding-bottom: 2em;
+}
+
+/* --- Target Highlighting (Optional) --- */
+/* You might want to visually emphasize the target section */
+/* section:target { */
+    /* Example: Add a subtle background */
+    /* background-color: #f0f8ff; */
+    /* Example: Add a border */
+    /* border-left: 5px solid navy; */
+    /* padding-left: 1em; Adjust padding if using border */
+/* } */
+
+/* Ensure smooth scrolling behavior */
+html {
+  scroll-behavior: smooth;
+}

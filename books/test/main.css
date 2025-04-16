@@ -1,0 +1,82 @@
+/* Basic Styling (optional) */
+html{
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: sans-serif;
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+}
+
+header, footer {
+    background-color: #333;
+    color: #fff;
+    padding: 1rem;
+    text-align: center;
+}
+
+header a {
+    color: #fff;
+    text-decoration: none;
+    margin: 0 10px;
+    font-weight: bold;
+}
+
+main {
+    padding: 20px;
+    max-width: 800px;
+    margin: 20px auto;
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+section {
+    border-bottom: 1px solid #eee;
+    padding: 20px 0;
+    margin-bottom: 20px;
+}
+
+section:last-of-type {
+    border-bottom: none;
+}
+
+h1, h2 {
+    color: #333;
+}
+
+/* --- Fading Logic --- */
+
+/* Style applied to the container when fading is active */
+#bookContainer.fade-active > *:not(.visible-section) {
+    opacity: 0.15; /* Adjust fade level as needed */
+    pointer-events: none; /* Prevent interaction with faded elements */
+    transition: opacity 0.5s ease-in-out;
+}
+
+/* Ensure the specifically targeted section remains fully visible and interactive */
+#bookContainer.fade-active > .visible-section {
+    opacity: 1;
+    pointer-events: auto; /* Explicitly allow interaction */
+    transition: opacity 0.5s ease-in-out;
+}
+
+/* Default state (smooth transition back when fade is removed) */
+#bookContainer > * {
+    opacity: 1;
+    pointer-events: auto;
+    transition: opacity 0.5s ease-in-out;
+}
+
+/* Style for focused section (optional, e.g., slight background change) */
+.visible-section {
+   /* background-color: #f0f8ff; /* Example: AliceBlue */
+   /* Add any other highlight styles if desired */
+}
+
+/* Ensure links within the visible section are clickable */
+#bookContainer.fade-active > .visible-section a {
+     pointer-events: auto;
+}
